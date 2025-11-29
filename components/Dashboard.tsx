@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import { Bus, Translation } from '../types';
 import { Activity, Bus as BusIcon, Ticket, Zap } from 'lucide-react';
 
@@ -108,21 +108,9 @@ const Dashboard: React.FC<DashboardProps> = ({ data, t }) => {
                   contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
                   itemStyle={{ color: '#1e293b', fontWeight: 600 }}
                 />
+                <Legend />
               </PieChart>
             </ResponsiveContainer>
-          </div>
-          
-          {/* Custom Legend */}
-          <div className="w-full md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {serviceTypeData.map((entry, index) => (
-                  <div key={entry.name} className="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 rounded-xl transition-colors">
-                      <div className="flex items-center gap-3">
-                          <div className="w-3 h-3 rounded-full flex-shrink-0 shadow-sm" style={{ backgroundColor: getServiceColor(entry.name) }}></div>
-                          <span className="text-sm font-medium text-slate-600 truncate max-w-[120px]" title={entry.name}>{entry.name}</span>
-                      </div>
-                      <span className="text-sm font-bold text-slate-900">{entry.value}</span>
-                  </div>
-              ))}
           </div>
         </div>
       </div>
