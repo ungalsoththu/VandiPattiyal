@@ -1,7 +1,7 @@
 
 import { Bus, Translation } from './types';
 
-export const CSV_FILE_URL = './FleetList.csv';
+export const CSV_FILE_URL = '/FleetList.csv';
 export const LAST_UPDATED = '26/11/2025';
 
 export const parseFleetData = (csvText: string): Bus[] => {
