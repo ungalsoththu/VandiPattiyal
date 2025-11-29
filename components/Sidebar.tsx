@@ -41,7 +41,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate, isOpen, setI
         ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         flex flex-col h-full shadow-xl
       `}>
-        <div className="p-6 border-b border-slate-700 flex justify-between items-center">
+        <div className="p-6 border-b border-slate-800 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="bg-yellow-400 p-2 rounded-lg text-slate-900">
               <Bus size={24} strokeWidth={2.5} />
@@ -68,7 +68,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate, isOpen, setI
                 w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200
                 ${currentPage === item.id 
                   ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50' 
-                  : 'text-slate-400 hover:bg-slate-800 hover:text-white'}
+                  : 'text-slate-300 hover:bg-slate-800 hover:text-white'}
               `}
             >
               {item.icon}
@@ -91,7 +91,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate, isOpen, setI
                 w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200
                 ${currentPage === item.id 
                   ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50' 
-                  : 'text-slate-400 hover:bg-slate-800 hover:text-white'}
+                  : 'text-slate-300 hover:bg-slate-800 hover:text-white'}
               `}
             >
               {item.icon}
@@ -100,7 +100,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate, isOpen, setI
           ))}
         </nav>
 
-        <div className="p-4 border-t border-slate-700">
+        <div className="p-4 border-t border-slate-800">
           <div className="bg-slate-800 rounded-xl p-4">
             <div className="flex items-center gap-3 mb-2">
               <Calendar size={16} className="text-slate-400" />

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { Bus, Translation } from '../types';
 import { Activity, Bus as BusIcon, Ticket, Zap } from 'lucide-react';
 
@@ -19,15 +19,13 @@ const getServiceColor = (serviceName: string) => {
 };
 
 const StatCard: React.FC<{ title: string; value: string | number; icon: React.ReactNode; color: string }> = ({ title, value, icon, color }) => (
-  <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow h-full min-h-[110px]">
-    <div className="flex justify-between items-start w-full mb-3">
-      <div className={`p-2.5 rounded-xl ${color}`}>
-        {icon}
-      </div>
+  <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center hover:shadow-md transition-shadow">
+    <div className={`p-3 rounded-xl mr-4 ${color}`}>
+      {icon}
     </div>
     <div>
       <h3 className="text-2xl font-bold text-slate-800">{value}</h3>
-      <p className="text-sm font-medium text-slate-500 mt-1">{title}</p>
+      <p className="text-sm font-medium text-slate-500">{title}</p>
     </div>
   </div>
 );
@@ -108,9 +106,24 @@ const Dashboard: React.FC<DashboardProps> = ({ data, t }) => {
                   contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
                   itemStyle={{ color: '#1e293b', fontWeight: 600 }}
                 />
-                <Legend />
               </PieChart>
             </ResponsiveContainer>
+          </div>
+
+          {/* Custom Legend */}
+          <div className="w-full md:w-1/2 grid grid-cols-2 gap-x-8 gap-y-4">
+            {serviceTypeData.map((entry) => (
+              <div key={entry.name} className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div
+                    className="w-3 h-3 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: getServiceColor(entry.name) }}
+                  />
+                  <span className="text-sm font-medium text-slate-600">{entry.name}</span>
+                </div>
+                <span className="text-sm font-bold text-slate-900">{entry.value}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
