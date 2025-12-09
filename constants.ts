@@ -1,19 +1,17 @@
 
 import { Bus, Translation } from './types';
 
-export const CSV_FILE_URL = './FleetList.csv';
+export const CSV_FILE_URL = '/FleetList.csv';
 export const LAST_UPDATED = '26/11/2025';
 
 export const parseFleetData = (csvText: string): Bus[] => {
-  const lines = csvText.trim().split('\n');
+  const lines = csvText.trim().split(/\r?\n/);
   // Skip header
   const dataLines = lines.slice(1);
   
   return dataLines.map((line, index) => {
-    // Handle potential carriage returns and skip lines that are just commas or empty
-    const cleanedLine = line.replace('\r', '').trim();
+    const cleanedLine = line.trim();
     
-    // Skip empty lines or those starting with comma (like ",,,,,,,,,")
     if (!cleanedLine || cleanedLine.startsWith(',')) return null;
     
     const cols = cleanedLine.split(',');
