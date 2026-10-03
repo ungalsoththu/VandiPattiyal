@@ -1,5 +1,38 @@
 @import "tailwindcss";
 
+/*
+  UngalSoththu design scheme v1 — workbench remap
+  Canonical scheme: UngalSoththu/DESIGN.md (brand tokens: bg #0b2e2f, fg #eef7f5,
+  accent gold #f0b429, accent-alt teal #8fd0c8). This app is a "workbench" surface:
+  light chrome tinted with brand teal, dark panels use the brand bg, accents use
+  brand gold. Do not hand-pick one-off colors; extend this remap instead.
+  Service-type categorical colors (EV/deluxe/ordinary/express/AC in Dashboard.tsx)
+  are data encodings, not chrome — they stay.
+*/
+
+@theme {
+  /* dark chrome (sidebar, buttons, tooltip text) → brand deep teal */
+  --color-slate-800: #0b2e2f;
+  --color-slate-900: #082324;
+
+  /* light chrome → teal-tinted neutrals */
+  --color-slate-50: #f4f8f7;
+  --color-slate-100: #e6efee;
+  --color-slate-200: #cfe0de;
+  --color-slate-400: #6f9c98;
+  --color-slate-500: #5c8683;
+  --color-slate-600: #486e6b;
+  --color-slate-700: #2c4e4d;
+
+  /* accent → brand gold */
+  --color-yellow-400: #f0b429;
+  --color-yellow-500: #d9a01f;
+}
+
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+}
+
+.lang-ta, [lang="ta"] {
+  font-family: 'Noto Sans Tamil', 'Inter', sans-serif;
 }

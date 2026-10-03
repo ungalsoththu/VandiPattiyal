@@ -106,7 +106,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, t }) => {
                 </Pie>
                 <Tooltip 
                   contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
-                  itemStyle={{ color: '#1e293b', fontWeight: 600 }}
+                  itemStyle={{ color: '#0b2e2f', fontWeight: 600 }}
                 />
               </PieChart>
             </ResponsiveContainer>
