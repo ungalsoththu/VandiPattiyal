@@ -1,20 +1,32 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# VandiPattiyal — வண்டி பட்டியல்
 
-# Run and deploy your AI Studio app
+**MTC Chennai fleet explorer.** A bilingual (English / தமிழ்) dashboard over the Metropolitan Transport Corporation's bus fleet: 3,801 buses by depot, registration, make, model, fuel/emission class, service type and status.
 
-This contains everything you need to run your app locally.
+**Live:** https://vandipattiyal.vercel.app
 
-View your app in AI Studio: https://ai.studio/apps/drive/1-UQTWjMwtygziz8Af7Emieu01UkXYif7
+## What's inside
 
-## Run Locally
+- **Dashboard** — headline counts (tracked fleet, electric fleet, Vidiyal Payanam, AC buses) and service-type distribution
+- **Fleet Search** — filter the full 3,801-row list by depot, model, AC, service type
+- **Depot Details** — per-depot breakdowns
+- **PTSC / GCC model** tabs — split between MTC-owned and GCC-operated fleet
 
-**Prerequisites:**  Node.js
+## Data
 
+`public/FleetList.csv` is a snapshot of the MTC fleet last updated **26 Nov 2025** (see the data-refresh issue for staleness tracking). Unofficial, community-maintained; not affiliated with MTC, TNSTC or the Government of Tamil Nadu. Corrections welcome via pull request or issue.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Stack
+
+React 19 · Vite 6 · Tailwind CSS 4 · Recharts. No backend — the CSV ships with the build and everything runs client-side.
+
+## Run locally
+
+```bash
+bun install   # or npm install
+bun run dev   # http://localhost:3000
+bun run build # production build in dist/
+```
+
+## License
+
+[MIT](LICENSE)
