@@ -67,7 +67,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate, isOpen, setI
               className={`
                 w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200
                 ${currentPage === item.id 
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50' 
+                  ? 'bg-[#0b2e2f] text-[#f0b429] shadow-lg shadow-black/30' 
                   : 'text-slate-400 hover:bg-slate-800 hover:text-white'}
               `}
             >
@@ -90,7 +90,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate, isOpen, setI
               className={`
                 w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200
                 ${currentPage === item.id 
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50' 
+                  ? 'bg-[#0b2e2f] text-[#f0b429] shadow-lg shadow-black/30' 
                   : 'text-slate-400 hover:bg-slate-800 hover:text-white'}
               `}
             >
