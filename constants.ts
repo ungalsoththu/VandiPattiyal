@@ -2,7 +2,7 @@
 import { Bus, Translation } from './types';
 
 export const CSV_FILE_URL = '/FleetList.csv';
-export const LAST_UPDATED = '26/11/2025';
+export const LAST_UPDATED = '03/10/2026';
 
 export const parseFleetData = (csvText: string): Bus[] => {
   const lines = csvText.trim().split('\n');
@@ -32,7 +32,9 @@ export const parseFleetData = (csvText: string): Bus[] => {
       isAC: cols[6].trim().toLowerCase() === 'yes',
       serviceType: cols[7].trim(),
       registrationDate: cols[8].trim(),
-      status: (cols[9].trim() || 'Active') as 'Active' | 'Maintenance' | 'Retired'
+      status: (cols[9].trim() || 'Active') as 'Active' | 'Maintenance' | 'Retired',
+      lastOperatedDate: (cols[10] || '').trim(),
+      kmOperatedSep: cols[11] && cols[11].trim() !== '' && !isNaN(parseFloat(cols[11])) ? parseFloat(cols[11]) : null
     };
   }).filter((item): item is Bus => item !== null);
 };
