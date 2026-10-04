@@ -11,6 +11,8 @@ export interface Bus {
   serviceType: string;
   registrationDate: string;
   status: 'Active' | 'Maintenance' | 'Retired';
+  lastOperatedDate: string;
+  kmOperatedSep: number | null;
 }
 
 export interface DashboardStats {

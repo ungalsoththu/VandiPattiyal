@@ -157,6 +157,18 @@ const FleetList: React.FC<FleetListProps> = ({ data, t }) => {
                     <ArrowUpDown size={14} className="text-slate-400" />
                   </div>
                 </th>
+                <th className="p-4 cursor-pointer hover:bg-slate-100 transition-colors" onClick={() => handleSort('lastOperatedDate')}>
+                  <div className="flex items-center gap-1">
+                    Last operated
+                    <ArrowUpDown size={14} className="text-slate-400" />
+                  </div>
+                </th>
+                <th className="p-4 cursor-pointer hover:bg-slate-100 transition-colors" onClick={() => handleSort('kmOperatedSep')}>
+                  <div className="flex items-center gap-1">
+                    KM operated (Sep)
+                    <ArrowUpDown size={14} className="text-slate-400" />
+                  </div>
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
@@ -182,11 +194,15 @@ const FleetList: React.FC<FleetListProps> = ({ data, t }) => {
                         {bus.serviceType}
                       </span>
                     </td>
+                    <td className="p-4 font-mono text-xs text-slate-500">{bus.lastOperatedDate || '—'}</td>
+                    <td className="p-4 font-mono text-xs text-slate-700">
+                      {bus.kmOperatedSep !== null ? bus.kmOperatedSep.toLocaleString('en-IN') : '—'}
+                    </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan={5} className="p-8 text-center text-slate-500">
+                  <td colSpan={7} className="p-8 text-center text-slate-500">
                     No vehicles found matching your criteria.
                   </td>
                 </tr>
